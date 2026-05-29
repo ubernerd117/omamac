@@ -1,13 +1,13 @@
 # Omamac
 
-Omamac is a keyboard-centric setup for macOS designed for developers working with the terminal. It's inspired by [Omarchy](https://omarchy.org/), and shares the same [Omadots](https://github.com/omacom-io/omadots) for the shell.
+A lean, tiling-first macOS dev setup — a debloated fork of [omamac](https://github.com/omacom-io/omamac). It's keyboard-centric and built for developers who live in the terminal, inspired by [Omarchy](https://omarchy.org/) and sharing the same [Omadots](https://github.com/omacom-io/omadots) for the shell and Neovim.
 
-It's built on AeroSpace for real i3/Hyprland-style tiling and workspace management. It also sets up all the basic developer tooling needed for a Terminal-driven workflow centered around Tmux.
+The window-management stack is replaced with [AeroSpace](https://github.com/nikitabobko/AeroSpace) for real i3/Hyprland-style tiling and workspaces, and the GUI app bloat is stripped down to dev-only essentials. It sets up the basic developer tooling needed for a Terminal-driven workflow centered around Tmux.
 
 ## Install
 
 ```bash
-curl -fsSL https://omamac.org/install | bash
+curl -fsSL https://raw.githubusercontent.com/ubernerd117/omamac/master/install.sh | bash
 ```
 
 Note: This will overwrite any existing configurations for `.zshrc`, Neovim, and the like. It's intended for a fresh installation.

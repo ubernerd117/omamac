@@ -30,7 +30,7 @@ install() {
   fi
 
   # Clone
-  REPO="https://github.com/omacom-io/omamac.git"
+  REPO="https://github.com/ubernerd117/omamac.git"
   INSTALLER_DIR="$(mktemp -d)"
   trap 'rm -rf "$INSTALLER_DIR"' EXIT
 
