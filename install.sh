@@ -55,7 +55,15 @@ install() {
   # Install apps (tiling WM + dev-only tooling)
   section "Installing apps..."
   casks=(nikitabobko/tap/aerospace font-jetbrains-mono-nerd-font docker-desktop claude-code)
-  for cask in $casks; do brew install --cask "$cask" || true; done
+  failed_casks=()
+  for cask in $casks; do
+    brew install --cask "$cask" || failed_casks+=("$cask")
+  done
+  if (( ${#failed_casks[@]} > 0 )); then
+    echo -e "\n⚠️  The following casks failed to install:"
+    for cask in $failed_casks; do echo "   ✗ $cask"; done
+    echo "   Re-run: brew install --cask ${failed_casks[*]}"
+  fi
 
   # Omamac configs
   section "Configuring Mac..."
