@@ -47,48 +47,46 @@ In **service mode**: `Esc` reloads config, `R` resets the layout, `F` toggles fl
 
 ### Terminal (Tmux)
 
-You launch tmux with `t` in a new terminal (`Ctrl + Cmd + Return`).
+Start tmux by running `tmux` in a new terminal (launch one with `Alt + Enter`). The tmux config is not in this repo — it's installed via [Omadots](https://github.com/omacom-io/omadots); the bindings below mirror [`config/tmux/tmux.conf`](https://github.com/omacom-io/omadots/blob/master/config/tmux/tmux.conf) upstream (installed to `~/.config/tmux/tmux.conf`).
+
+`Alt` is the Option key — Alacritty is configured with `option_as_alt = "Both"`. Below, `<prefix>` means press the prefix key first, then release and press the next key.
 
 **Prefix key:** `Ctrl + Space` (secondary: `Ctrl + b`)
+
+> **Heads up — AeroSpace grabs some Alt keys first.** AeroSpace binds `Alt + Enter` (launch terminal) and `Alt + 1`–`9` (switch workspace) globally, so tmux never sees them. Use the `<prefix>`-based alternatives (e.g. `<prefix> h` to split, `<prefix> w` to pick a window) when those collide.
 
 **Pane Management:**
 
 | Hotkey | Action |
 |--------|--------|
-| `Ctrl + Cmd + PageUp` | Split horizontally |
-| `Ctrl + Cmd + PageDown` | Split vertically |
-| `Ctrl + Cmd + Home` | Split horizontally |
-| `Ctrl + Cmd + End` | Kill pane |
-| `Ctrl + Cmd + ←` | Focus left pane |
-| `Ctrl + Cmd + →` | Focus right pane |
-| `Ctrl + Cmd + ↑` | Focus up pane |
-| `Ctrl + Cmd + ↓` | Focus down pane |
-| `Ctrl + Cmd + Shift + ←` | Resize left |
-| `Ctrl + Cmd + Shift + ↓` | Resize down |
-| `Ctrl + Cmd + Shift + ↑` | Resize up |
-| `Ctrl + Cmd + Shift + →` | Resize right |
+| `Alt + Enter` | Split pane below *(grabbed by AeroSpace — use `<prefix> h`)* |
+| `Alt + Shift + Enter` | Split pane to the right |
+| `<prefix> h` | Split pane below |
+| `<prefix> v` | Split pane to the right |
+| `Alt + Escape` / `<prefix> x` | Kill pane |
+| `Ctrl + Alt + ←/↓/↑/→` | Focus pane left / down / up / right |
+| `Ctrl + Alt + Shift + ←/↓/↑/→` | Resize pane left / down / up / right |
 
 **Window Management:**
 
 | Hotkey | Action |
 |--------|--------|
-| `Ctrl + Shift + Home` | New window |
-| `Ctrl + Shift + End` | Kill window |
-| `Ctrl + Shift + PageUp` | Next window |
-| `Ctrl + Shift + PageDown` | Previous window |
-| `Ctrl + Space x` | Kill window |
-| `Ctrl + Space r` | Rename window |
+| `<prefix> c` | New window |
+| `<prefix> k` | Kill window |
+| `<prefix> r` | Rename window |
+| `Alt + ←` / `Alt + →` | Previous / next window |
+| `Alt + Shift + ←` / `Alt + Shift + →` | Move window left / right |
+| `Alt + 1`–`9` | Select window 1–9 *(grabbed by AeroSpace)* |
 
 **Session Management:**
 
 | Hotkey | Action |
 |--------|--------|
-| `Ctrl + Cmd + Shift + Home` | New session |
-| `Ctrl + Cmd + Shift + End` | Kill session |
-| `Ctrl + Cmd + Shift + PageUp` | Previous session |
-| `Ctrl + Cmd + Shift + PageDown` | Next session |
-| `Ctrl + Space R` | Rename session |
-| `Ctrl + Space X` | Kill session |
+| `<prefix> C` | New session |
+| `<prefix> K` | Kill session |
+| `<prefix> R` | Rename session |
+| `<prefix> P` / `<prefix> N` | Previous / next session |
+| `Alt + ↑` / `Alt + ↓` | Previous / next session |
 
 **Copy Mode (Vi):**
 
@@ -101,5 +99,6 @@ You launch tmux with `t` in a new terminal (`Ctrl + Cmd + Return`).
 
 | Hotkey | Action |
 |--------|--------|
-| `Ctrl + Space q` | Reload config |
+| `<prefix> q` | Reload config |
+| `<prefix> ?` | Show all keybindings (popup) |
 
