@@ -38,7 +38,7 @@ install() {
   git clone --depth 1 "$REPO" "$INSTALLER_DIR"
 
   section "Installing packages..."
-  packages=(tmux mise nvim opencode lazygit lazydocker starship zoxide eza jq gum gh libyaml)
+  packages=(tmux mise nvim opencode lazygit lazydocker starship zoxide eza jq gh libyaml)
   for pkg in $packages; do brew install "$pkg" || true; done
 
   # Install Alacritty manually from GitHub releases
@@ -52,30 +52,10 @@ install() {
   echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >>"$HOME/.config/shell/inits"
   echo "✓ Zsh"
 
-  # Install secondary apps
+  # Install apps (tiling WM + dev-only tooling)
   section "Installing apps..."
-  casks=(rectangle-pro hammerspoon font-jetbrains-mono-nerd-font docker-desktop google-chrome claude-code raycast)
+  casks=(nikitabobko/tap/aerospace font-jetbrains-mono-nerd-font docker-desktop claude-code)
   for cask in $casks; do brew install --cask "$cask" || true; done
-
-  # Install optional apps
-  section "Installing optional apps..."
-  selected_apps=$(gum choose --no-limit --height=11 \
-    --selected="1password" --selected="dropbox" --selected="spotify" \
-    --selected="signal" --selected="whatsapp" --selected="obsidian" \
-    --selected="zoom" --selected="localsend" --selected="tailscale" \
-    "1password" "dropbox" "spotify" "signal" "whatsapp" "obsidian" "zoom" "localsend" "lm-studio" "tailscale")
-  while IFS= read -r app; do
-    [[ -n "$app" ]] && brew install --cask "$app" || true
-  done <<< "$selected_apps"
-
-  # Install dev environments
-  section "Installing dev environments..."
-  selected_langs=$(gum choose --no-limit --height=15 \
-    --selected="node" --selected="ruby" \
-    "node" "ruby" "python" "go" "rust" "java" "php" "elixir" "erlang" "scala" "kotlin" "deno" "bun")
-  while IFS= read -r lang; do
-    [[ -n "$lang" ]] && mise use -g "$lang" || true
-  done <<< "$selected_langs"
 
   # Omamac configs
   section "Configuring Mac..."
@@ -92,23 +72,15 @@ install() {
   . "$INSTALLER_DIR/install/mac.sh"
   echo "✓ Settings"
 
-  # Correct hammerspoon config location
-  defaults write org.hammerspoon.Hammerspoon MJConfigFile "$HOME/.config/hammerspoon/init.lua"
-
   # Done!
   section "Finished!"
-  echo "1. You must manually create the nine default workspaces with F3"
-  echo "2. Manually disable all Keyboard Shortcuts for Windows + Spotlight + Mission Control"
-  echo "3. Manually enable 'Switch to Desktop' Keyboard Shortcuts on CMD-[1-9]"
-  echo "4. Manually import Rectangle Pro config from ~/.config/rectangle/RectangleProConfig.json (reveal hidden with Cmd + Shift + . in Finder)"
-  echo "5. Manually import Raycast config from ~/.config/raycast/Raycast.rayconfig with pw: 12345678"
-  echo "6. Remember to authenticate with: gh auth login"
-  echo "7. Then logout and back in for everything to take effect (Cmd + Shift + Q)"
+  echo "1. Grant AeroSpace Accessibility permission when prompted (System Settings > Privacy & Security > Accessibility)"
+  echo "2. AeroSpace manages its own workspaces — switch with Alt+[1-9], move windows with Alt+Shift+[1-9]"
+  echo "3. Launch a terminal with Alt+Enter; see all keybindings in ~/.config/aerospace/aerospace.toml"
+  echo "4. Remember to authenticate with: gh auth login"
+  echo "5. Then logout and back in for everything to take effect (Cmd + Shift + Q)"
 
-  open -a "Hammerspoon"
-  open -a "Rectangle Pro"
-  open -a "Raycast"
-  open -a "Tailscale"
+  open -a "AeroSpace"
 }
 
 # Must use a function to prevent brew installs from stealing stdin

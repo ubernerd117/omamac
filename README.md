@@ -2,7 +2,7 @@
 
 Omamac is a keyboard-centric setup for macOS designed for developers working with the terminal. It's inspired by [Omarchy](https://omarchy.org/), and shares the same [Omadots](https://github.com/omacom-io/omadots) for the shell.
 
-It's built on Rectangle Pro for window positioning, Hammerspoon for window navigation, hotkeys for workspace navigation, and Raycast for app launching. It also sets up all the basic developer tooling needed for a Terminal-driven workflow centered around Tmux.
+It's built on AeroSpace for real i3/Hyprland-style tiling and workspace management. It also sets up all the basic developer tooling needed for a Terminal-driven workflow centered around Tmux.
 
 ## Install
 
@@ -14,52 +14,36 @@ Note: This will overwrite any existing configurations for `.zshrc`, Neovim, and 
 
 ## What it sets up
 
-- **Window Management**: Rectangle Pro, Hammerspoon, Raycast
+- **Window Management**: AeroSpace (tiling, workspaces)
 - **Terminal**: Alacritty, Tmux
 - **Shell**: Starship prompt, fzf, eza, zoxide
 - **Editors**: nvim, opencode, claude-code
-- **Dev tools**: mise (Ruby, Node.js), Docker, lazygit, lazydocker
-- **Apps**: 1Password, Obsidian, Google Chrome, Dropbox, Spotify, Signal, WhatsApp
-- **Networking**: Tailscale
+- **Dev tools**: mise, Docker, lazygit, lazydocker
 - **Git**: Helpful aliases and config
 
 ## Hotkeys
 
-### Window Navigation (Hammerspoon)
+### Window Management (AeroSpace)
+
+The modifier is `Alt` (⌥), like a tiling WM's `$mod`. Full config in `~/.config/aerospace/aerospace.toml`.
 
 | Hotkey | Action |
 |--------|--------|
-| `Cmd + Ctrl + →` | Focus window to the right |
-| `Cmd + Ctrl + ←` | Focus window to the left |
-| `Cmd + Ctrl + ↑` | Focus window above |
-| `Cmd + Ctrl + ↓` | Focus window below |
+| `Alt + Enter` | Launch terminal (Alacritty) |
+| `Alt + H / J / K / L` | Focus left / down / up / right |
+| `Alt + Shift + H / J / K / L` | Move window left / down / up / right |
+| `Alt + -` / `Alt + =` | Shrink / grow focused window |
+| `Alt + /` | Tiles layout (horizontal/vertical) |
+| `Alt + ,` | Accordion layout |
+| `Alt + F` | Fullscreen focused window |
+| `Alt + Shift + Space` | Toggle floating / tiling |
+| `Alt + [1-9]` | Switch to workspace |
+| `Alt + Shift + [1-9]` | Move window to workspace |
+| `Alt + Tab` | Back-and-forth to previous workspace |
+| `Alt + Shift + Tab` | Move workspace to next monitor |
+| `Alt + Shift + ;` | Enter service mode (reload/reset) |
 
-### Window Positioning (Rectangle Pro)
-
-| Hotkey | Action |
-|--------|--------|
-| `Cmd + ⌥ + ←` | Left Half |
-| `Cmd + ⌥ + →` | Right Half |
-| `Cmd + ⌥ + ↑` | Top Left Quarter |
-| `Cmd + ⌥ + ↓` | Bottom Left Quarter |
-| `Cmd + ⌥ + Shift + ↑` | Top Right Quarter |
-| `Cmd + ⌥ + Shift + ↓` | Bottom Right Quarter |
-| `Cmd + ⌥ + Ctrl + ←` | First Fourth (Left) |
-| `Cmd + ⌥ + Ctrl + →` | Last Fourth (Right) |
-| `Cmd + ⌥ + Ctrl + ↑` | Top Left Eighth |
-| `Cmd + ⌥ + Ctrl + ↓` | Bottom Left Eighth |
-| `Cmd + ⌥ + Ctrl + Shift + ↑` | Top Right Eighth |
-| `Cmd + ⌥ + Ctrl + Shift + ↓` | Bottom Right Eighth |
-| `Cmd + ⌥ + Return` | Center Half |
-| `Cmd + ⌥ + Ctrl + Return` | Maximize |
-
-### Application Launching (Raycast)
-
-| Hotkey | Action |
-|--------|--------|
-| `Cmd + Space` | Launcher |
-| `Cmd + Ctrl + Return` | Launch Terminal (Alacritty) |
-| `Cmd + Ctrl + Shift + Return` | Launch Browser (Chrome) |
+In **service mode**: `Esc` reloads config, `R` resets the layout, `F` toggles floating, `Backspace` closes all windows but the current one.
 
 ### Terminal (Tmux)
 
