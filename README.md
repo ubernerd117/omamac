@@ -30,6 +30,7 @@ The modifier is `Alt` (⌥), like a tiling WM's `$mod`. Full config in `~/.confi
 | Hotkey | Action |
 |--------|--------|
 | `Alt + Enter` | Launch terminal (Alacritty) |
+| `Alt + Shift + B` | Launch browser (Zen) — mirrors Omarchy's browser key |
 | `Alt + H / J / K / L` | Focus left / down / up / right |
 | `Alt + Shift + H / J / K / L` | Move window left / down / up / right |
 | `Alt + -` / `Alt + =` | Shrink / grow focused window |
