@@ -7,7 +7,7 @@ The window-management stack is replaced with [AeroSpace](https://github.com/niki
 ## Install
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/ubernerd117/omamac/master/install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/ubernerd117/omamac/main/install.sh | bash
 ```
 
 Note: This will overwrite any existing configurations for `.zshrc`, Neovim, and the like. It's intended for a fresh installation.
