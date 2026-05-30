@@ -1,6 +1,11 @@
 [env]
 TERM = "xterm-256color"
 
+# Launch into tmux by default, attaching to a running session or creating one.
+[terminal.shell]
+program = "/bin/zsh"
+args = ["-l", "-c", "tmux new-session -A -s main"]
+
 [font]
 normal = { family = "JetBrainsMono Nerd Font", style = "Regular" }
 bold = { family = "JetBrainsMono Nerd Font", style = "Bold" }

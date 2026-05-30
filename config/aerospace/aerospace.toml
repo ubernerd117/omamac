@@ -28,13 +28,14 @@ outer.right = 8
 # Main mode — the alt (⌥) key is the modifier, like a tiling WM "$mod"
 [mode.main.binding]
 
-# Launch the terminal
-alt-enter = 'exec-and-forget open -a Alacritty'
+# Launch the terminal — '-n' forces a new window even when Alacritty is already running.
+alt-enter = 'exec-and-forget open -na Alacritty'
 
 # Launch the browser — mirrors Omarchy's SUPER+SHIFT+B browser key (Super -> alt here).
-# Opens Zen instead of the Omarchy default. Edit the app name to use any browser,
-# e.g. 'exec-and-forget open -a Safari' or '... open -a "Google Chrome"'.
-alt-shift-b = 'exec-and-forget open -a Zen'
+# Opens Zen instead of the Omarchy default. '-n' forces a new window even when Zen is
+# already running. Edit the app name to use any browser,
+# e.g. 'exec-and-forget open -na Safari' or '... open -na "Google Chrome"'.
+alt-shift-b = 'exec-and-forget open -na Zen'
 
 # Toggle between tiling and accordion layouts
 alt-slash = 'layout tiles horizontal vertical'
@@ -98,3 +99,18 @@ esc = ['reload-config', 'mode main']
 r = ['flatten-workspace-tree', 'mode main'] # reset the layout
 f = ['layout floating tiling', 'mode main'] # toggle floating
 backspace = ['close-all-windows-but-current', 'mode main']
+
+# Pin workspaces to monitors so AeroSpace never parks a stray, unbound
+# workspace (e.g. "11") on a screen. 1-5 live on the built-in display,
+# 6-9 on the external. When only one monitor is connected, everything
+# falls back to it automatically.
+[workspace-to-monitor-force-assignment]
+1 = 'main'
+2 = 'main'
+3 = 'main'
+4 = 'main'
+5 = 'main'
+6 = 'secondary'
+7 = 'secondary'
+8 = 'secondary'
+9 = 'secondary'
