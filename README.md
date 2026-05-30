@@ -18,7 +18,7 @@ Note: This will overwrite any existing configurations for `.zshrc`, Neovim, and 
 - **Terminal**: Alacritty, Tmux
 - **Shell**: Starship prompt, fzf, eza, zoxide
 - **Editors**: nvim, opencode, claude-code
-- **Dev tools**: mise, Docker, lazygit, lazydocker
+- **Dev tools**: Docker, lazygit, lazydocker, gh (GitHub CLI), jq
 - **Git**: Helpful aliases and config
 
 ## Hotkeys

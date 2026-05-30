@@ -38,7 +38,7 @@ install() {
   git clone --depth 1 "$REPO" "$INSTALLER_DIR"
 
   section "Installing packages..."
-  packages=(tmux mise nvim opencode lazygit lazydocker starship zoxide eza jq gh libyaml)
+  packages=(tmux nvim opencode lazygit lazydocker starship zoxide eza jq gh)
   for pkg in $packages; do brew install "$pkg" || true; done
 
   # Install Alacritty manually from GitHub releases
@@ -52,9 +52,9 @@ install() {
   echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >>"$HOME/.config/shell/inits"
   echo "✓ Zsh"
 
-  # Install apps (tiling WM + dev-only tooling)
+  # Install apps (tiling WM + universal tooling)
   section "Installing apps..."
-  casks=(nikitabobko/tap/aerospace font-jetbrains-mono-nerd-font docker-desktop claude-code)
+  casks=(nikitabobko/tap/aerospace font-jetbrains-mono-nerd-font docker-desktop)
   failed_casks=()
   for cask in $casks; do
     brew install --cask "$cask" || failed_casks+=("$cask")
@@ -64,6 +64,10 @@ install() {
     for cask in $failed_casks; do echo "   ✗ $cask"; done
     echo "   Re-run: brew install --cask ${failed_casks[*]}"
   fi
+
+  # Install Claude Code via the official installer to track the latest version
+  section "Installing Claude Code..."
+  curl -fsSL https://claude.ai/install.sh | bash
 
   # Omamac configs
   section "Configuring Mac..."
