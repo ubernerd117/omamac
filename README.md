@@ -46,9 +46,11 @@ The modifier is `Alt` (⌥), like a tiling WM's `$mod`. Full config in `~/.confi
 
 In **service mode**: `Esc` reloads config, `R` resets the layout, `F` toggles floating, `Backspace` closes all windows but the current one.
 
+**Multi-monitor:** workspaces are pinned to specific screens via `[workspace-to-monitor-force-assignment]` — `1`–`5` on the built-in display (`main`), `6`–`9` on the external (`secondary`). This keeps each workspace on a predictable screen and stops AeroSpace from parking a stray, unbound workspace (e.g. `11`) on a monitor. With only one display connected, every workspace falls back to it automatically.
+
 ### Terminal (Tmux)
 
-Start tmux by running `tmux` in a new terminal (launch one with `Alt + Enter`). The tmux config is not in this repo — it's installed via [Omadots](https://github.com/omacom-io/omadots); the bindings below mirror [`config/tmux/tmux.conf`](https://github.com/omacom-io/omadots/blob/master/config/tmux/tmux.conf) upstream (installed to `~/.config/tmux/tmux.conf`).
+Alacritty launches straight into tmux (it runs `tmux new-session -A -s main`, attaching to the running session or creating one), so a new terminal (`Alt + Enter`) drops you into tmux automatically. The tmux config is not in this repo — it's installed via [Omadots](https://github.com/omacom-io/omadots); the bindings below mirror [`config/tmux/tmux.conf`](https://github.com/omacom-io/omadots/blob/master/config/tmux/tmux.conf) upstream (installed to `~/.config/tmux/tmux.conf`).
 
 `Alt` is the Option key — Alacritty is configured with `option_as_alt = "Both"`. Below, `<prefix>` means press the prefix key first, then release and press the next key.
 
