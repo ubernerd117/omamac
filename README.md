@@ -7,7 +7,7 @@ The window-management stack is replaced with [AeroSpace](https://github.com/niki
 ## Install
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/ubernerd117/omamac/master/install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/ubernerd117/omamac/main/install.sh | bash
 ```
 
 Note: This will overwrite any existing configurations for `.zshrc`, Neovim, and the like. It's intended for a fresh installation.
@@ -30,6 +30,7 @@ The modifier is `Alt` (⌥), like a tiling WM's `$mod`. Full config in `~/.confi
 | Hotkey | Action |
 |--------|--------|
 | `Alt + Enter` | Launch terminal (Alacritty) |
+| `Alt + Shift + B` | Launch browser (Zen) — mirrors Omarchy's browser key |
 | `Alt + H / J / K / L` | Focus left / down / up / right |
 | `Alt + Shift + H / J / K / L` | Move window left / down / up / right |
 | `Alt + -` / `Alt + =` | Shrink / grow focused window |

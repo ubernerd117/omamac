@@ -31,6 +31,11 @@ outer.right = 8
 # Launch the terminal
 alt-enter = 'exec-and-forget open -a Alacritty'
 
+# Launch the browser — mirrors Omarchy's SUPER+SHIFT+B browser key (Super -> alt here).
+# Opens Zen instead of the Omarchy default. Edit the app name to use any browser,
+# e.g. 'exec-and-forget open -a Safari' or '... open -a "Google Chrome"'.
+alt-shift-b = 'exec-and-forget open -a Zen'
+
 # Toggle between tiling and accordion layouts
 alt-slash = 'layout tiles horizontal vertical'
 alt-comma = 'layout accordion horizontal vertical'
