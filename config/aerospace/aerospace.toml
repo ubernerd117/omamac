@@ -35,7 +35,9 @@ alt-enter = 'exec-and-forget open -na Alacritty'
 # Opens Zen instead of the Omarchy default. '-n' forces a new window even when Zen is
 # already running. Edit the app name to use any browser,
 # e.g. 'exec-and-forget open -na Safari' or '... open -na "Google Chrome"'.
-alt-shift-z = 'exec-and-forget open -na Zen'
+# The brief 'sleep' lets Shift release first — Firefox-based browsers (Zen) open in
+# Troubleshoot Mode if Shift is still held down when they start up.
+alt-shift-z = 'exec-and-forget sleep 0.3; open -na Zen'
 alt-shift-m = 'exec-and-forget open -na Mail'
 alt-shift-b = 'exec-and-forget open -na Beeper\ Desktop'
 alt-shift-c = 'exec-and-forget open -na Calendar'
