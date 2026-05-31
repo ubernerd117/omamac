@@ -35,7 +35,11 @@ alt-enter = 'exec-and-forget open -na Alacritty'
 # Opens Zen instead of the Omarchy default. '-n' forces a new window even when Zen is
 # already running. Edit the app name to use any browser,
 # e.g. 'exec-and-forget open -na Safari' or '... open -na "Google Chrome"'.
-alt-shift-b = 'exec-and-forget open -na Zen'
+alt-shift-z = 'exec-and-forget open -na Zen'
+alt-shift-m = 'exec-and-forget open -na Mail'
+alt-shift-b = 'exec-and-forget open -na Beeper\ Desktop'
+alt-shift-c = 'exec-and-forget open -na Calendar'
+
 
 # Toggle between tiling and accordion layouts
 alt-slash = 'layout tiles horizontal vertical'
@@ -99,6 +103,10 @@ esc = ['reload-config', 'mode main']
 r = ['flatten-workspace-tree', 'mode main'] # reset the layout
 f = ['layout floating tiling', 'mode main'] # toggle floating
 backspace = ['close-all-windows-but-current', 'mode main']
+alt-shift-h = ['join-with left', 'mode main']
+alt-shift-j = ['join-with down', 'mode main']
+alt-shift-k = ['join-with up', 'mode main']
+alt-shift-l = ['join-with right', 'mode main']
 
 # Pin workspaces to monitors so AeroSpace never parks a stray, unbound
 # workspace (e.g. "11") on a screen. 1-5 live on the built-in display,
